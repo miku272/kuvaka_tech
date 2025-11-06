@@ -276,15 +276,9 @@ class _BudgetScreenState extends State<BudgetScreen> {
     context.read<BudgetBloc>().add(DeleteBudgetEvent(budgetId: budgetId));
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: const Text('Budget deleted'),
-        duration: const Duration(seconds: 3),
-        action: SnackBarAction(
-          label: 'Undo',
-          onPressed: () {
-            // TODO: Implement undo functionality
-          },
-        ),
+      const SnackBar(
+        content: Text('Budget deleted'),
+        duration: Duration(seconds: 3),
       ),
     );
   }
