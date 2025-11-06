@@ -7,6 +7,8 @@ import './core/theme/light_theme.dart';
 import './core/theme/dark_theme.dart';
 import './core/cubit/app_theme/app_theme_cubit.dart';
 
+import './router.dart';
+
 Future<void> main() async {
   await initDependencies();
 
@@ -29,12 +31,12 @@ class KuvakaTech extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
       builder: (context, appThemeModeState) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'Kuvaka Tech Assignment',
           theme: LightTheme.theme,
           darkTheme: DarkTheme.theme,
           themeMode: appThemeModeState.themeMode,
-          home: const Scaffold(),
+          routerConfig: AppRouter.router,
         );
       },
     );
