@@ -11,6 +11,7 @@ import './router.dart';
 
 import './features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import './features/transaction/presentation/bloc/transaction_bloc.dart';
+import './features/budget/presentation/bloc/budget_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +28,7 @@ Future<void> main() async {
         BlocProvider.value(value: appThemeCubit),
         BlocProvider(create: (context) => getIt<DashboardBloc>()),
         BlocProvider(create: (context) => getIt<TransactionBloc>()),
+        BlocProvider(create: (context) => getIt<BudgetBloc>()),
       ],
       child: const KuvakaTech(),
     ),

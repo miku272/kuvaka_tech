@@ -18,6 +18,11 @@ import './features/transaction/data/repository/transaction_repository_impl.dart'
 import './features/transaction/domain/repository/transaction_repository.dart';
 import './features/transaction/presentation/bloc/transaction_bloc.dart';
 
+import './features/budget/data/datasource/budget_local_datasource.dart';
+import './features/budget/data/repository/budget_repository_impl.dart';
+import './features/budget/domain/repository/budget_repository.dart';
+import './features/budget/presentation/bloc/budget_bloc.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> initDependencies() async {
@@ -27,6 +32,7 @@ Future<void> initDependencies() async {
   _initAppTheme();
   _initDashboard();
   _initTransaction();
+  _initBudget();
 }
 
 Future<void> _initsfService() async {
@@ -101,5 +107,24 @@ void _initTransaction() {
   getIt.registerLazySingleton<TransactionBloc>(
     () =>
         TransactionBloc(transactionRepository: getIt<TransactionRepository>()),
+  );
+}
+
+void _initBudget() {
+  getIt.registerFactory<BudgetLocalDatasource>(
+    () => BudgetLocalDatasourceImpl(
+      budgetBox: getIt<Box<Budget>>(),
+      transactionBox: getIt<Box<Transaction>>(),
+    ),
+  );
+
+  getIt.registerFactory<BudgetRepository>(
+    () => BudgetRepositoryImpl(
+      budgetLocalDatasource: getIt<BudgetLocalDatasource>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<BudgetBloc>(
+    () => BudgetBloc(budgetRepository: getIt<BudgetRepository>()),
   );
 }

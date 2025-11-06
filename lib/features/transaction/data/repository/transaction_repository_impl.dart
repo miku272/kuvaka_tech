@@ -1,8 +1,7 @@
-import 'package:fpdart/src/either.dart';
+import 'package:fpdart/fpdart.dart';
 
-import 'package:kuvaka_tech/core/error/failure.dart';
-
-import 'package:kuvaka_tech/core/model/transaction.dart';
+import '../../../../core/error/failure.dart';
+import '../../../../core/model/transaction.dart';
 
 import '../../domain/repository/transaction_repository.dart';
 import '../datasource/transaction_local_datasource.dart';

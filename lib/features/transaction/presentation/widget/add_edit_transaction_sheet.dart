@@ -179,7 +179,7 @@ class _AddEditTransactionSheetState extends State<AddEditTransactionSheet> {
                         const SizedBox(height: 20),
                         // Category
                         DropdownButtonFormField<String>(
-                          value: _selectedCategory,
+                          initialValue: _selectedCategory,
                           decoration: const InputDecoration(
                             labelText: 'Category *',
                           ),
