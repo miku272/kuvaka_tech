@@ -15,4 +15,18 @@ class DashboardSummary {
     required this.recentTransactions,
     required this.categoryTotals,
   });
+
+  DashboardSummary copyWith({
+    double? totalIncome,
+    double? totalExpense,
+    List<Transaction>? recentTransactions,
+    Map<String, double>? categoryTotals,
+  }) {
+    return DashboardSummary(
+      totalIncome: totalIncome ?? this.totalIncome,
+      totalExpense: totalExpense ?? this.totalExpense,
+      recentTransactions: recentTransactions ?? this.recentTransactions,
+      categoryTotals: categoryTotals ?? this.categoryTotals,
+    );
+  }
 }

@@ -9,7 +9,11 @@ import './core/cubit/app_theme/app_theme_cubit.dart';
 
 import './router.dart';
 
+import './features/dashboard/presentation/bloc/dashboard_bloc.dart';
+
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await initDependencies();
 
   final appThemeCubit = getIt<AppThemeCubit>();
@@ -18,7 +22,10 @@ Future<void> main() async {
 
   runApp(
     MultiBlocProvider(
-      providers: [BlocProvider.value(value: appThemeCubit)],
+      providers: [
+        BlocProvider.value(value: appThemeCubit),
+        BlocProvider(create: (context) => getIt<DashboardBloc>()),
+      ],
       child: const KuvakaTech(),
     ),
   );
@@ -33,6 +40,7 @@ class KuvakaTech extends StatelessWidget {
       builder: (context, appThemeModeState) {
         return MaterialApp.router(
           title: 'Kuvaka Tech Assignment',
+          debugShowCheckedModeBanner: false,
           theme: LightTheme.theme,
           darkTheme: DarkTheme.theme,
           themeMode: appThemeModeState.themeMode,
