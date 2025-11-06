@@ -2,17 +2,17 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../../core/model/transaction.dart';
 
-abstract interface class TransactionRemoteDatasource {
+abstract interface class TransactionLocalDatasource {
   List<Transaction> getAllTransactions();
   Future<Transaction> addTransaction(Transaction transaction);
   Transaction editTransaction(Transaction transaction);
   Future<void> deleteTransaction(String transactionId);
 }
 
-class TransactionRemoteDatasourceImpl extends TransactionRemoteDatasource {
+class TransactionLocalDatasourceImpl extends TransactionLocalDatasource {
   final Box<Transaction> _transactionBox;
 
-  TransactionRemoteDatasourceImpl({required Box<Transaction> transactionBox})
+  TransactionLocalDatasourceImpl({required Box<Transaction> transactionBox})
     : _transactionBox = transactionBox;
 
   @override

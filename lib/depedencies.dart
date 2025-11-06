@@ -13,6 +13,11 @@ import './features/dashboard/domain/repository/dashboard_repository.dart';
 import './features/dashboard/data/repository/dashboard_repository_impl.dart';
 import './features/dashboard/presentation/bloc/dashboard_bloc.dart';
 
+import './features/transaction/data/datasource/transaction_local_datasource.dart';
+import './features/transaction/data/repository/transaction_repository_impl.dart';
+import './features/transaction/domain/repository/transaction_repository.dart';
+import './features/transaction/presentation/bloc/transaction_bloc.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> initDependencies() async {
@@ -21,6 +26,7 @@ Future<void> initDependencies() async {
 
   _initAppTheme();
   _initDashboard();
+  _initTransaction();
 }
 
 Future<void> _initsfService() async {
@@ -76,5 +82,24 @@ void _initDashboard() {
 
   getIt.registerLazySingleton<DashboardBloc>(
     () => DashboardBloc(dashboardRepository: getIt<DashboardRepository>()),
+  );
+}
+
+void _initTransaction() {
+  getIt.registerFactory<TransactionLocalDatasource>(
+    () => TransactionLocalDatasourceImpl(
+      transactionBox: getIt<Box<Transaction>>(),
+    ),
+  );
+
+  getIt.registerFactory<TransactionRepository>(
+    () => TransactionRepositoryImpl(
+      transactionLocalDatasource: getIt<TransactionLocalDatasource>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<TransactionBloc>(
+    () =>
+        TransactionBloc(transactionRepository: getIt<TransactionRepository>()),
   );
 }
