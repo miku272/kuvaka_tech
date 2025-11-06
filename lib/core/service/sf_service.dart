@@ -4,17 +4,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SfService {
   final SharedPreferences _sharedPreferences;
 
-  static const String themeModeKey = 'theme_mode';
+  static const String _themeModeKey = 'theme_mode';
 
   SfService({required SharedPreferences sharedPreferences})
     : _sharedPreferences = sharedPreferences;
 
   Future<void> saveThemeMode(ThemeMode themeMode) async {
-    await _sharedPreferences.setString(themeModeKey, themeMode.name);
+    await _sharedPreferences.setString(_themeModeKey, themeMode.name);
   }
 
   ThemeMode getThemeMode() {
-    final themeModeString = _sharedPreferences.getString(themeModeKey);
+    final themeModeString = _sharedPreferences.getString(_themeModeKey);
 
     switch (themeModeString) {
       case 'light':
@@ -28,6 +28,6 @@ class SfService {
   }
 
   Future<bool> clearThemeMode() async {
-    return await _sharedPreferences.remove(themeModeKey);
+    return await _sharedPreferences.remove(_themeModeKey);
   }
 }
