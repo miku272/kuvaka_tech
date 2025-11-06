@@ -5,11 +5,21 @@ import './depedencies.dart';
 
 import './core/theme/light_theme.dart';
 import './core/theme/dark_theme.dart';
+import './core/cubit/app_theme/app_theme_cubit.dart';
 
 Future<void> main() async {
   await initDependencies();
 
-  runApp(MultiBlocProvider(providers: [], child: const KuvakaTech()));
+  final appThemeCubit = getIt<AppThemeCubit>();
+
+  appThemeCubit.loadThemeMode();
+
+  runApp(
+    MultiBlocProvider(
+      providers: [BlocProvider.value(value: appThemeCubit)],
+      child: const KuvakaTech(),
+    ),
+  );
 }
 
 class KuvakaTech extends StatelessWidget {
@@ -17,11 +27,16 @@ class KuvakaTech extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Kuvaka Tech Assignment',
-      theme: LightTheme.theme,
-      darkTheme: DarkTheme.theme,
-      home: const Scaffold(),
+    return BlocBuilder<AppThemeCubit, AppThemeState>(
+      builder: (context, appThemeModeState) {
+        return MaterialApp(
+          title: 'Kuvaka Tech Assignment',
+          theme: LightTheme.theme,
+          darkTheme: DarkTheme.theme,
+          themeMode: appThemeModeState.themeMode,
+          home: const Scaffold(),
+        );
+      },
     );
   }
 }
