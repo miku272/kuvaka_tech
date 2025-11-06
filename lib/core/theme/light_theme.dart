@@ -9,12 +9,12 @@ class LightTheme {
     colorScheme: ColorScheme(
       brightness: Brightness.light,
       primary: const Color(AppColors.primaryLight),
-      onPrimary: const Color(AppColors.textPrimaryLight),
+      onPrimary: Colors.white, // White text on primary color
       primaryContainer: const Color(AppColors.primaryVariantLight),
-      onPrimaryContainer: const Color(AppColors.textPrimaryLight),
+      onPrimaryContainer: Colors.white, // White text on primary container
 
       secondary: const Color(AppColors.secondaryLight),
-      onSecondary: const Color(AppColors.textPrimaryLight),
+      onSecondary: Colors.white, // White text on secondary color
       secondaryContainer: const Color(
         AppColors.secondaryLight,
       ).withValues(alpha: 0.1),
@@ -24,16 +24,22 @@ class LightTheme {
       onSurface: const Color(AppColors.textPrimaryLight),
 
       error: const Color(AppColors.errorLight),
-      onError: const Color(AppColors.surfaceLight),
+      onError: Colors.white, // White text on error color
 
       tertiary: const Color(AppColors.chartAccentLight),
-      onTertiary: const Color(AppColors.textPrimaryLight),
+      onTertiary: Colors.white, // White text on tertiary color
     ),
     scaffoldBackgroundColor: const Color(AppColors.backgroundLight),
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(AppColors.primaryLight),
-      foregroundColor: Color(AppColors.textPrimaryLight),
+      foregroundColor: Colors.white, // White text/icons on AppBar
       elevation: 0,
+      iconTheme: IconThemeData(color: Colors.white),
+      titleTextStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+      ),
     ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(
@@ -58,7 +64,7 @@ class LightTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(AppColors.primaryLight),
-        foregroundColor: const Color(AppColors.surfaceLight),
+        foregroundColor: Colors.white, // White text on buttons
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
@@ -73,5 +79,26 @@ class LightTheme {
       ),
     ),
     dividerColor: const Color(AppColors.dividerLight),
+    cardTheme: CardThemeData(
+      color: const Color(AppColors.surfaceLight),
+      elevation: 2,
+      shadowColor: Colors.black.withValues(alpha: 0.1),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: Color(AppColors.primaryLight),
+      foregroundColor: Colors.white,
+    ),
+    chipTheme: ChipThemeData(
+      backgroundColor: const Color(
+        AppColors.primaryLight,
+      ).withValues(alpha: 0.1),
+      labelStyle: const TextStyle(color: Color(AppColors.primaryLight)),
+      secondaryLabelStyle: const TextStyle(
+        color: Color(AppColors.secondaryLight),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    ),
   );
 }

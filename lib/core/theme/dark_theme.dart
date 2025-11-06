@@ -9,12 +9,18 @@ class DarkTheme {
     colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: const Color(AppColors.primaryDark),
-      onPrimary: const Color(AppColors.textPrimaryDark),
+      onPrimary: const Color(
+        AppColors.backgroundDark,
+      ), // Dark text on light primary
       primaryContainer: const Color(AppColors.primaryVariantDark),
-      onPrimaryContainer: const Color(AppColors.textPrimaryDark),
+      onPrimaryContainer: const Color(
+        AppColors.backgroundDark,
+      ), // Dark text on light container
 
       secondary: const Color(AppColors.secondaryDark),
-      onSecondary: const Color(AppColors.textPrimaryDark),
+      onSecondary: const Color(
+        AppColors.backgroundDark,
+      ), // Dark text on light secondary
       secondaryContainer: const Color(
         AppColors.secondaryDark,
       ).withValues(alpha: 0.1),
@@ -24,16 +30,28 @@ class DarkTheme {
       onSurface: const Color(AppColors.textPrimaryDark),
 
       error: const Color(AppColors.errorDark),
-      onError: const Color(AppColors.surfaceDark),
+      onError: const Color(
+        AppColors.backgroundDark,
+      ), // Dark text on light error
 
       tertiary: const Color(AppColors.chartAccentDark),
-      onTertiary: const Color(AppColors.textPrimaryDark),
+      onTertiary: const Color(
+        AppColors.backgroundDark,
+      ), // Dark text on light tertiary
     ),
     scaffoldBackgroundColor: const Color(AppColors.backgroundDark),
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(AppColors.primaryDark),
-      foregroundColor: Color(AppColors.textPrimaryDark),
+      foregroundColor: Color(
+        AppColors.backgroundDark,
+      ), // Dark text on light AppBar
       elevation: 0,
+      iconTheme: IconThemeData(color: Color(AppColors.backgroundDark)),
+      titleTextStyle: TextStyle(
+        color: Color(AppColors.backgroundDark),
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+      ),
     ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(
@@ -58,7 +76,9 @@ class DarkTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(AppColors.primaryDark),
-        foregroundColor: const Color(AppColors.surfaceDark),
+        foregroundColor: const Color(
+          AppColors.backgroundDark,
+        ), // Dark text on light buttons
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
@@ -73,5 +93,26 @@ class DarkTheme {
       ),
     ),
     dividerColor: const Color(AppColors.dividerDark),
+    cardTheme: CardThemeData(
+      color: const Color(AppColors.surfaceDark),
+      elevation: 2,
+      shadowColor: Colors.black.withValues(alpha: 0.3),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: Color(AppColors.primaryDark),
+      foregroundColor: Color(AppColors.backgroundDark),
+    ),
+    chipTheme: ChipThemeData(
+      backgroundColor: const Color(
+        AppColors.primaryDark,
+      ).withValues(alpha: 0.2),
+      labelStyle: const TextStyle(color: Color(AppColors.primaryDark)),
+      secondaryLabelStyle: const TextStyle(
+        color: Color(AppColors.secondaryDark),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    ),
   );
 }
