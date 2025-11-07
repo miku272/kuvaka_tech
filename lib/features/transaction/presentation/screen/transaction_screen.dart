@@ -150,8 +150,9 @@ class _TransactionScreenState extends State<TransactionScreen> {
           }
 
           final allTransactions = state.transactions;
-          final filteredTransactions = _filterTransactions(allTransactions)
-            ..sort((a, b) => b.date.compareTo(a.date));
+          final filteredTransactions = _filterTransactions(
+            allTransactions,
+          ).toList()..sort((a, b) => b.date.compareTo(a.date));
 
           return Column(
             children: [
