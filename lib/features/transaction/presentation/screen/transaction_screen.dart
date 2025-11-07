@@ -77,9 +77,14 @@ class _TransactionScreenState extends State<TransactionScreen> {
       _lastDeletedTransaction = transaction;
     });
 
-    context.read<TransactionBloc>().add(
-      DeleteTransactionEvent(transactionId: transactionId),
-    );
+    // Delay to allow Dismissible animation to complete
+    Future.delayed(const Duration(milliseconds: 300), () {
+      if (mounted) {
+        context.read<TransactionBloc>().add(
+          DeleteTransactionEvent(transactionId: transactionId),
+        );
+      }
+    });
   }
 
   void _undoDelete() {
@@ -228,11 +233,13 @@ class _TransactionScreenState extends State<TransactionScreen> {
                           );
                         },
                         child: ListView.builder(
+                          key: const PageStorageKey('transactionsList'),
                           itemCount: filteredTransactions.length,
                           padding: const EdgeInsets.symmetric(vertical: 8),
                           itemBuilder: (context, index) {
                             final transaction = filteredTransactions[index];
                             return TransactionListItem(
+                              key: ValueKey(transaction.id),
                               transaction: transaction,
                               onEdit: () =>
                                   _showAddEditSheet(transaction: transaction),

@@ -23,8 +23,9 @@ class TransactionListItem extends StatelessWidget {
     final dateFormat = DateFormat('MMM dd, yyyy');
 
     return Dismissible(
-      key: Key(transaction.id),
+      key: ValueKey(transaction.id),
       direction: DismissDirection.endToStart,
+      resizeDuration: const Duration(milliseconds: 200),
       background: Container(
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 20),
@@ -62,17 +63,6 @@ class TransactionListItem extends StatelessWidget {
       },
       onDismissed: (direction) {
         onDelete();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: const Text('Transaction deleted'),
-            action: SnackBarAction(
-              label: 'Undo',
-              onPressed: () {
-                // Undo functionality would be handled by the parent
-              },
-            ),
-          ),
-        );
       },
       child: Card(
         elevation: 1,
