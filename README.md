@@ -266,7 +266,7 @@ The app supports both light and dark themes:
 
 ## 🧪 Testing
 
-The project includes test setup in the `test/` directory. Add unit tests, widget tests, and integration tests as needed.
+The project includes test setup in the `test/` directory.
 
 ## 📝 Code Generation Details
 
@@ -316,9 +316,6 @@ flutter pub run build_runner build --delete-conflicting-outputs
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 👨‍💻 Author
 Naresh Sharma
