@@ -5,7 +5,7 @@ import '../../../../core/model/transaction.dart';
 import '../../../../core/widget/empty_state_widget.dart';
 import '../../../../core/widget/error_state_widget.dart';
 import '../../../../core/widget/loading_widget.dart';
-import '../../../../core/widget/theme_toggle_button.dart';
+
 import '../bloc/transaction_bloc.dart';
 import '../widget/add_edit_transaction_sheet.dart';
 import '../widget/transaction_filter_chip.dart';
@@ -98,17 +98,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Transactions'),
-        centerTitle: true,
-        actions: [
-          ThemeToggleButton(
-            onPressed: () {
-              // TODO: Add theme toggle functionality
-            },
-          ),
-        ],
-      ),
+      appBar: AppBar(title: const Text('Transactions'), centerTitle: true),
       body: BlocConsumer<TransactionBloc, TransactionState>(
         listener: (context, state) {
           if (state is AddTransactionFailure ||

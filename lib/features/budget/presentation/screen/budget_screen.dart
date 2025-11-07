@@ -5,7 +5,7 @@ import '../../../../core/model/budget.dart';
 import '../../../../core/widget/empty_state_widget.dart';
 import '../../../../core/widget/error_state_widget.dart';
 import '../../../../core/widget/loading_widget.dart';
-import '../../../../core/widget/theme_toggle_button.dart';
+
 import '../bloc/budget_bloc.dart';
 import '../widget/add_edit_budget_sheet.dart';
 import '../widget/budget_list_item.dart';
@@ -40,17 +40,7 @@ class _BudgetScreenState extends State<BudgetScreen> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Budgets'),
-        actions: [
-          ThemeToggleButton(
-            onPressed: () {
-              // Toggle theme
-            },
-          ),
-          const SizedBox(width: 8),
-        ],
-      ),
+      appBar: AppBar(title: const Text('Budgets')),
       body: Column(
         children: [
           // Month selector

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widget/error_state_widget.dart';
 import '../../../../core/widget/loading_widget.dart';
-import '../../../../core/widget/theme_toggle_button.dart';
 
 import '../../domain/entity/dashboard_summary.dart';
 import '../bloc/dashboard_bloc.dart';
@@ -126,11 +125,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
-        centerTitle: true,
-        actions: [ThemeToggleButton(onPressed: () {})],
-      ),
+      appBar: AppBar(title: const Text('Dashboard'), centerTitle: true),
       body: BlocBuilder<DashboardBloc, DashboardState>(
         builder: (context, state) {
           // Show loading on initial load
