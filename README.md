@@ -12,6 +12,37 @@ A comprehensive Flutter application for managing personal finances, tracking tra
 - **Beautiful Charts**: Visualize financial data using FL Chart
 - **Clean Navigation**: Bottom navigation with Go Router
 
+## 📸 Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="assets/screenshots/Simulator Screenshot - iPhone 17 Pro Max - 2025-11-07 at 11.09.20.png" alt="Dashboard" width="250" height="540"/>
+        <br />
+        <b>Dashboard</b>
+      </td>
+      <td align="center">
+        <img src="assets/screenshots/Simulator Screenshot - iPhone 17 Pro Max - 2025-11-07 at 11.09.30.png" alt="Settings" width="250" height="540"/>
+        <br />
+        <b>Settings</b>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="assets/screenshots/Simulator Screenshot - iPhone 17 Pro Max - 2025-11-07 at 11.10.17.png" alt="Budget" width="250" height="540"/>
+        <br />
+        <b>Budget</b>
+      </td>
+      <td align="center">
+        <img src="assets/screenshots/Simulator Screenshot - iPhone 17 Pro Max - 2025-11-07 at 11.10.36.png" alt="Transactions" width="250" height="540"/>
+        <br />
+        <b>Transactions</b>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## 🏗️ Architecture
 
 This project follows **Clean Architecture** principles with the following structure:
