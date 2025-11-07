@@ -60,6 +60,9 @@ class ShellScaffold extends StatelessWidget {
               case 2:
                 context.go('/budget');
                 break;
+              case 3:
+                context.go('/settings');
+                break;
               default:
                 context.go('/');
             }
@@ -76,6 +79,10 @@ class ShellScaffold extends StatelessWidget {
             NavigationDestination(
               icon: Icon(Icons.savings_rounded),
               label: 'Budget',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.settings_rounded),
+              label: 'Settings',
             ),
           ],
         ),

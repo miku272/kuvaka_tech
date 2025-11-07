@@ -5,6 +5,7 @@ import './shell_scaffold.dart';
 import './features/dashboard/presentation/screen/dashboard_screen.dart';
 import './features/transaction/presentation/screen/transaction_screen.dart';
 import './features/budget/presentation/screen/budget_screen.dart';
+import './features/settings/presentation/screen/setting_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
@@ -36,6 +37,12 @@ class AppRouter {
               return const BudgetScreen();
             },
           ),
+          GoRoute(
+            path: '/settings',
+            builder: (context, state) {
+              return const SettingScreen();
+            },
+          ),
         ],
       ),
     ],
@@ -49,6 +56,8 @@ class AppRouter {
         return 1;
       case '/budget':
         return 2;
+      case '/settings':
+        return 3;
       default:
         return 0;
     }
